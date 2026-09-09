@@ -62,6 +62,9 @@ void VeKhung() {
 class Ran {
 public:
     Point A[200];   // A[0] la dau ran
+class Ran {
+public:
+    Point A[200];  
     int DoDai;
 
     Ran() {
@@ -88,6 +91,14 @@ public:
         if (Huong == 1) A[0].y = A[0].y + 1;   // xuong
         if (Huong == 2) A[0].x = A[0].x - 1;   // sang trai
         if (Huong == 3) A[0].y = A[0].y - 1;   // len
+        for (int i = DoDai - 1; i > 0; i--)
+            A[i] = A[i - 1];
+
+        if (Huong == 0) A[0].x = A[0].x + 1;
+        if (Huong == 1) A[0].y = A[0].y + 1;
+        if (Huong == 2) A[0].x = A[0].x - 1;
+        if (Huong == 3) A[0].y = A[0].y - 1;
+
     }
 };
 
