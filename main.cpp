@@ -1,27 +1,4 @@
-// ##########################################################
-// ###  FILE NAY LA CUA:  SV2                             ###
-// ##########################################################
-//
-//  Phan viec cua SV2: VE KHUNG SAN CHOI
-//
-//  SV2 lam gi voi file nay:
-//    1. TAO BRANCH TRUOC DA:  Ve-Khung   (tao tu branch main)
-//       Chua tao branch ma da chep file la SAI.
-//    2. Doi ten file thanh:  main.cpp
-//    3. Chep DE LEN file main.cpp cu trong thu muc:  E:\Code\Snake2
-//    4. Chay thu: phai thay khung dau '+' bao quanh, ran chay ben trong.
-//    5. Commit -> Push origin -> Create Pull Request
-//
-//  So voi ban goc cua SV1, file nay chi them 11 dong o 2 cho:
-//    - Them nguyen ham VeKhung()  (dat ngay truoc  class Ran)
-//    - Them 1 dong  VeKhung();    (trong main, ngay sau system("cls"))
-//
-// ##########################################################
 
-// ============================================================
-//  SNAKE - BAI TAP NHOM
-//  Ban goc (base) do SV1 - Truong nhom tao va day len GitHub
-// ============================================================
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
