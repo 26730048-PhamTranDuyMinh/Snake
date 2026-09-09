@@ -36,11 +36,12 @@ public:
         }
     }
 
-    void Ve() {
+    void Ve(Point Qua) {
         for (int i = 0; i < DoDai; i++) {
             gotoxy(A[i].x, A[i].y);
             cout << "X";
         }
+        gotoxy(Qua.x, Qua.y); cout << "*";
     }
 
     void DiChuyen(int Huong) {
