@@ -36,7 +36,7 @@ public:
         }
     }
 
-    void Ve() {
+    void Ve(Point Qua) {
         for (int i = 0; i < DoDai; i++) {
             gotoxy(A[i].x, A[i].y);
             cout << "X";
@@ -45,9 +45,6 @@ public:
     }
 
     void DiChuyen(int Huong, Point& Qua) {
-    }
-
-    void DiChuyen(int Huong) {
         for (int i = DoDai - 1; i > 0; i--)
             A[i] = A[i - 1];
 
@@ -55,6 +52,12 @@ public:
         if (Huong == 1) A[0].y = A[0].y + 1;
         if (Huong == 2) A[0].x = A[0].x - 1;
         if (Huong == 3) A[0].y = A[0].y - 1;
+
+        if ((A[0].x == Qua.x) && (A[0].y == Qua.y)) {
+            DoDai++;
+            Qua.x = rand() % (MAXX - MINX) + MINX;
+            Qua.y = rand() % (MAXY - MINY) + MINY;
+        }
     }
 };
 
@@ -77,8 +80,8 @@ int main() {
             if (t == 'w') Huong = 3;
         }
         system("cls");
-        r.Ve();
-        r.DiChuyen(Huong);
+        r.Ve(Qua);
+        r.DiChuyen(Huong, Qua);
         Sleep(300);
     }
     return 0;
