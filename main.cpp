@@ -52,22 +52,15 @@ public:
         }
     }
 
-    void Ve() {
+    void Ve(Point Qua) {
         for (int i = 0; i < DoDai; i++) {
             gotoxy(A[i].x, A[i].y);
             cout << "X";
         }
+        gotoxy(Qua.x, Qua.y); cout << "*";
     }
 
-    void DiChuyen(int Huong) {
-        // Doi cho: than theo duoi dau
-        for (int i = DoDai - 1; i > 0; i--)
-            A[i] = A[i - 1];
-
-        if (Huong == 0) A[0].x = A[0].x + 1;   // sang phai
-        if (Huong == 1) A[0].y = A[0].y + 1;   // xuong
-        if (Huong == 2) A[0].x = A[0].x - 1;   // sang trai
-        if (Huong == 3) A[0].y = A[0].y - 1;   // len
+    void DiChuyen(int Huong, Point& Qua) {
         for (int i = DoDai - 1; i > 0; i--)
             A[i] = A[i - 1];
 
@@ -76,6 +69,11 @@ public:
         if (Huong == 2) A[0].x = A[0].x - 1;
         if (Huong == 3) A[0].y = A[0].y - 1;
 
+        if ((A[0].x == Qua.x) && (A[0].y == Qua.y)) {
+            DoDai++;
+            Qua.x = rand() % (MAXX - MINX) + MINX;
+            Qua.y = rand() % (MAXY - MINY) + MINY;
+        }
     }
 };
 
@@ -83,6 +81,11 @@ int main() {
     Ran r;
     int Huong = 0;
     char t;
+
+    Point Qua;
+    srand((int)time(0));
+    Qua.x = rand() % (MAXX - MINX) + MINX;
+    Qua.y = rand() % (MAXY - MINY) + MINY;
 
     while (1) {
         if (kbhit()) {
@@ -94,8 +97,8 @@ int main() {
         }
         system("cls");
         VeKhung();
-        r.Ve();
-        r.DiChuyen(Huong);
+        r.Ve(Qua);
+        r.DiChuyen(Huong, Qua);
         Sleep(300);
     }
     return 0;
