@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
@@ -6,6 +7,7 @@
 #include <windows.h>
 using namespace std;
 
+// Kich thuoc khung san choi
 #define MINX 2
 #define MINY 2
 #define MAXX 35
@@ -16,6 +18,7 @@ struct Point {
     int y;
 };
 
+// Dua con tro ve toa do (x, y) tren man hinh console
 void gotoxy(int x, int y) {
     COORD c;
     c.X = x;
@@ -23,6 +26,19 @@ void gotoxy(int x, int y) {
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 }
 
+// --- SV2 them: ve khung san choi bang dau '+' ---
+void VeKhung() {
+    for (int i = MINX; i <= MAXX; i++)
+        for (int j = MINY; j <= MAXY; j++)
+            if ((i == MINX) || (i == MAXX) || (j == MINY) || (j == MAXY)) {
+                gotoxy(i, j);
+                printf("+");
+            }
+}
+
+class Ran {
+public:
+    Point A[200];   // A[0] la dau ran
 class Ran {
 public:
     Point A[200];  
@@ -80,6 +96,7 @@ int main() {
             if (t == 'w') Huong = 3;
         }
         system("cls");
+        VeKhung();
         r.Ve(Qua);
         r.DiChuyen(Huong, Qua);
         Sleep(300);
